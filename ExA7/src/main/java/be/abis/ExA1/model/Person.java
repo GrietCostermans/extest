@@ -67,7 +67,13 @@ public class Person {
 
 	@Override
 	public String toString() {
-		String text = "Person " + this.personNumber + ": " + this.firstName + " " +this.lastName + " (" +this.calculateAge()+ " years old)";
+		String text = "";
+		try {
+			text = "Person " + this.personNumber + ": " + this.firstName + " " + this.lastName + " (" + this.calculateAge() + " years old)";
+		} catch (AgeException e) {
+			System.out.println("Age Exception");
+		}
+
 		if (this.company != null) {
 			text+= " works for " + this.company.getName() + " in " + this.company.getAddress().getTown() + ".";
 		} else {
@@ -80,16 +86,9 @@ public class Person {
 	public int calculateAge() throws AgeException {
 		int age = Period.between(birthDay, LocalDate.now()).getYears();
 
-		try {
-			if (age < 18) {
+		if (age < 18) {
 				throw new AgeException("Die is te jong hoor");
 			}
-		}
-		catch (AgeException e)
-		{
-			System.out.println(e.getMessage());
-		}
-
 		return age;
 	}
 	

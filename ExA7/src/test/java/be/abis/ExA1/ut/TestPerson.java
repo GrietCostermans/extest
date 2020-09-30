@@ -22,8 +22,9 @@ public class TestPerson {
 
 
     @Test
-    public void ageOfPersonShouldBe42 () {
-        int result = testDummy.calculateAge();
+    public void ageOfPersonShouldBe42 () throws Exception {
+        int result = 0;
+        result = testDummy.calculateAge();
         assertThat(result,equalTo(42));
 
     }
@@ -36,13 +37,11 @@ public class TestPerson {
 
     }
 
-    @Test
+    @Test(expected= AgeException.class)
     public void checkIfAgeExceptionIsThrown () throws AgeException {
         //
-        testDummy.setBirthDay(LocalDate.of(2008, 6, 28))
+        testDummy.setBirthDay(LocalDate.of(2008, 6, 28));
         int result = testDummy.calculateAge();
-        //assertThat(result, startsWith("Person"));
-
     }
 
 
