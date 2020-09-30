@@ -1,5 +1,7 @@
 package be.abis.ExA1.model;
 
+import be.abis.ExA1.exception.AgeException;
+
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -75,8 +77,20 @@ public class Person {
 	}
 	
 	
-	public int calculateAge() {
-		return Period.between(birthDay, LocalDate.now()).getYears();
+	public int calculateAge() throws AgeException {
+		int age = Period.between(birthDay, LocalDate.now()).getYears();
+
+		try {
+			if (age < 18) {
+				throw new AgeException("Die is te jong hoor");
+			}
+		}
+		catch (AgeException e)
+		{
+			System.out.println(e.getMessage());
+		}
+
+		return age;
 	}
 	
 	

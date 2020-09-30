@@ -1,5 +1,8 @@
 package be.abis.ExA1.ut;
+
+import be.abis.ExA1.exception.AgeException;
 import be.abis.ExA1.model.Person;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -10,10 +13,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class TestPerson {
 
+    private Person testDummy;
+
+    @Before
+    public void setUp() {
+        testDummy = new Person (1,"Griet","Costermans", LocalDate.of(1978, 6, 28));
+    }
+
+
     @Test
     public void ageOfPersonShouldBe42 () {
-        Person p42 = new Person (1,"Griet","Costermans", LocalDate.of(1978, 6, 28));
-        int result = p42.calculateAge();
+        int result = testDummy.calculateAge();
         assertThat(result,equalTo(42));
 
     }
@@ -21,10 +31,27 @@ public class TestPerson {
     @Test
     public void toStringSentenceStartsWithPerson () {
         //
-        Person pToString = new Person (1,"Griet","Costermans", LocalDate.of(1978, 6, 28));
-        String result = pToString.toString();
-        System.out.println(result);
+        String result = testDummy.toString();
         assertThat(result, startsWith("Person"));
 
     }
+
+    @Test
+    public void checkIfAgeExceptionIsThrown () throws AgeException {
+        //
+        testDummy.setBirthDay(LocalDate.of(2008, 6, 28))
+        int result = testDummy.calculateAge();
+        //assertThat(result, startsWith("Person"));
+
+    }
+
+
+
+
+
+
+
+
+
+
 }
