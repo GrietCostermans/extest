@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>be.abis</groupId>
-    <artifactId>ExA22</artifactId>
+    <artifactId>ExA3</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -27,6 +27,11 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.9</version>
+    </dependency>
 
 
 </project>
