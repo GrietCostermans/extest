@@ -76,7 +76,8 @@ public class TestPerson {
 
     @Test(expected= LowSalaryException.class)
     public void setSalaryUnder1500ToProvokeException () throws LowSalaryException {
-        Person pMocked = new Person(2,"Grietje","Costermans", LocalDate.of(1978, 6, 28),companyMocked,1000);
+        when(companyMocked.calculateTaxToPay()).thenReturn(51.0);
+        Person pMocked = new Person(2,"Grietje","Costermans", LocalDate.of(1978, 6, 28),companyMocked,5000);
         pMocked.setGrossSalary(1000);
     }
 

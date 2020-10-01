@@ -41,8 +41,8 @@ public class Person {
 	}
 
 	public void setGrossSalary(double grossSalary) throws LowSalaryException {
-		checkSalary();
 		this.grossSalary = grossSalary;
+		checkSalary();
 	}
 
 	public int getPersonNumber() {
@@ -118,6 +118,7 @@ public class Person {
 	}
 
 	public void checkSalary() throws LowSalaryException {
+		System.out.println("netto="+this.calculateNetSalary());
 		if (this.calculateNetSalary() < 1500) {
 			throw new LowSalaryException("Salary too low");
 		}
