@@ -27,7 +27,10 @@ public class Person {
 	}
 
 	public Person(int personNumber, String firstName, String lastName, LocalDate birthDay, Company company, double grossSalary) {
-		this(personNumber,firstName,lastName,birthDay);
+		this.personNumber = personNumber;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.birthDay = birthDay;
 		this.company = company;
 		this.grossSalary = grossSalary;
 	}

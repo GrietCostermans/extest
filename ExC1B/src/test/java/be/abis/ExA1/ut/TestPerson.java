@@ -17,7 +17,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestPerson {
@@ -65,8 +65,13 @@ public class TestPerson {
     public void calculateNetSalaryOfBelgianPersonUsingMockCompany() {
         System.out.println("netsal= "+testDummy.calculateNetSalary());
 
+        Person pMocked = new Person(2,"Grietje","Costermans", LocalDate.of(1978, 6, 28),companyMocked,1000);
+
         when(companyMocked.calculateTaxToPay()).thenReturn(51.0);
-        assertEquals(490,testDummy.calculateNetSalary(),0);
+
+        assertEquals(490,pMocked.calculateNetSalary(),0);
+
+        verify(companyMocked, atLeastOnce()).calculateTaxToPay();
 
     }
 }
