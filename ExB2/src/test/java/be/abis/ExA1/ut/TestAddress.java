@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 public class TestAddress {
     @Test
     public void belgianZipCodeShouldBeNumeric() {
@@ -33,7 +32,6 @@ public class TestAddress {
         assertFalse(result);
     }
 
-
     @Test
     public void newAddressShouldAppendInFile() {
         Address b2910 = new Address("Heikantstraat", "21A", "2910", "Essen", "België", "BE");
@@ -44,6 +42,7 @@ public class TestAddress {
 
 
     }
+
     @Disabled
     @Test
     public void noIdeaYet() {
