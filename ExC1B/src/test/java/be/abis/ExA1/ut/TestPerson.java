@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 public class TestPerson {
 
     private Person testDummy;
-    private static final
+    private static
 
     @Mock
     Company companyMocked;
@@ -64,6 +64,7 @@ public class TestPerson {
     @Test
     public void calculateNetSalaryOfBelgianPersonUsingMockCompany() {
         System.out.println("netsal= "+testDummy.calculateNetSalary());
+
         when(companyMocked.calculateTaxToPay()).thenReturn(51.0);
         assertEquals(490,testDummy.calculateNetSalary(),0);
 
